@@ -3,28 +3,28 @@ import mongoose from "mongoose";
 const patientSchema = mongoose.Schema({
     petName: {
         type: String,
-        require: true
+        required: true
     },
     petOwner: {
         type: String,
-        require: true
+        required: true
     },
     email: {
         type: String,
-        require: true
+        required: true
     },
     phone: {
         type: String,
-        require: true
+        required: true
     },
     date: {
         type: Date,
-        require: true,
+        required: true,
         default: Date.now()
     },
     symptoms: {
         type: String,
-        require: true
+        required: true
     },
     veterinarian_id: {
         type: mongoose.Schema.Types.ObjectId,
