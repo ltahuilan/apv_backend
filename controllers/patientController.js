@@ -13,7 +13,6 @@ const createPatient = async (req, res) => {
 }
 
 const getPatients = async (req, res) => {
-
     const patients = await Patient.find().where('veterinarian_id').equals(req.veterinarian);
     res.json(patients);
 }

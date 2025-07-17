@@ -5,7 +5,9 @@ const isAutenticated = async (req, res, next) => {
     let token;
 
     //si no se recibió un token o si no es Bearer
-    if (!req.headers.authorization || (req.headers.authorization && !req.headers.authorization.startsWith("Bearer")) ) {
+    if (!req.headers.authorization ||
+        (req.headers.authorization && !req.headers.authorization.startsWith("Bearer"))
+    ) {
         const error = new Error("Token no valido o no es Bearer");
         return res.status(401).json({"message" : error.message});
     }

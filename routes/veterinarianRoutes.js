@@ -17,7 +17,7 @@ const router = express.Router();
 router.post('/', registerUser);
 router.get('/confirm/:token', confirmUser);
 router.post('/auth', loginUser);
-router.post('/forgot-password', forgotPassword); //validar email del usuario y enviar tokeb
+router.post('/forgot-password', forgotPassword); //validar email del usuario y enviar token
 router.get('/forgot-password/:token', verifyToken); //verificar el token
 router.post('/forgot-password/:token', resetPassword); //obtener nuevo password
 

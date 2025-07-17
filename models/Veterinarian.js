@@ -30,7 +30,7 @@ const veterinarianSchema = mongoose.Schema({
     },
     token: {
         type: String,
-        default: generateToken()  
+        default: generateToken
     },
     confirm: {
         type: Boolean,
