@@ -1,11 +1,21 @@
 import Patient from "../models/Patient.js";
 
 const createPatient = async (req, res) => {
+
+    if (req.body._id === null) {
+        delete req.body._id
+    }
+
     const patient = new Patient(req.body);
     patient.veterinarian_id = req.veterinarian._id
 
     try {
         const patientSaved = await patient.save();
+
+        console.log(patientSaved)
+        const patienSavedToObject = patientSaved.toObject();
+        console.log(patienSavedToObject);
+
         return res.status(200).json(patientSaved);
     } catch (error) {
         console.log(error);
@@ -14,7 +24,7 @@ const createPatient = async (req, res) => {
 
 const getPatients = async (req, res) => {
     const patients = await Patient.find().where('veterinarian_id').equals(req.veterinarian);
-    res.json(patients);
+    return res.json(patients);
 }
 
 const getAPatient = async (req, res) => {
@@ -38,6 +48,7 @@ const updatePatient = async (req, res) => {
 
     //leer el id desde el request
     const {id} = req.params;
+    console.log(req.params);
 
     //buscar el paciente
     const patient = await Patient.findById(id);

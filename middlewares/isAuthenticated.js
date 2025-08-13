@@ -25,7 +25,14 @@ const isAutenticated = async (req, res, next) => {
         return next();
 
     } catch (error) {
-        const err = new Error("Token no válido");
+        let err = '';
+
+        if(error.name === 'TokenExpiredError') {
+            err = new Error("La sesión ha expirado, inicia sesión nuevamente");
+            return res.status(401).json({message: err.message, token_exp: true});
+        }
+        
+        err = new Error("Token no válido");
         return res.status(401).json({"message": err.message});
     }
 }

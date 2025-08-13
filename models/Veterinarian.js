@@ -42,7 +42,7 @@ const veterinarianSchema = mongoose.Schema({
 
 //Antes de guardar hashear sustituir el password
 veterinarianSchema.pre('save', async function (next) {
-    console.log('Ejecutando .pre("save")');
+    // console.log('Ejecutando .pre("save")');
     if(!this.isModified('password')) {
         return next();
     }

@@ -1,0 +1,209 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "apv backend",
+    "collectionId": "39a12904-b694-44bc-9674-bd346902fe16",
+    "dateExported": "2025-07-19T14:39:23.046Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "17b59555-aee0-4c84-b39d-9d9466dcab98",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "register",
+            "url": "http://localhost:4000/api/veterinarian",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-05-18T13:53:01.191Z",
+            "modified": "2025-06-01T13:32:57.531Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\" : \"Tahuilan\",\n  \"email\" : \"tahuilan@correo.com\",\n  \"password\" : \"password\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "462864ae-3d54-40d7-a718-79d8d9747061",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "profile",
+            "url": "http://localhost:4000/api/veterinarian/profile",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2025-05-18T13:57:41.085Z",
+            "modified": "2025-05-28T03:08:23.403Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MzIxOWMyNTg0MmFmNWQ3YmY5YzYyMiIsImlhdCI6MTc0ODE5NjA2MSwiZXhwIjoxNzUwNzg4MDYxfQ.kWiXc5daS4hVcSqdGXOjvVSRQsVauJlPXafg_tX0J_Ku43RrqAAXHonfRTzkMjA71KYFfpCyPYQgiZoBbp3y4A"
+            }
+        },
+        {
+            "_id": "d921d923-e6bb-4658-8265-7e479594aaf4",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "confirm account",
+            "url": "http://localhost:4000/api/veterinarian/confirm/1islr1e3b2ur6d620h8g",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2025-05-19T02:36:30.164Z",
+            "modified": "2025-06-01T15:06:22.976Z",
+            "headers": []
+        },
+        {
+            "_id": "6195d0ce-a844-4811-87e9-e61b6d22ae63",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "login user",
+            "url": "http://localhost:4000/api/veterinarian/auth",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2025-05-22T02:13:25.349Z",
+            "modified": "2025-07-12T16:38:14.666Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\" : \"ltahuilan.ipn@gmail.com\",\n  \"password\" : \"password\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "847d72cd-79e7-4080-819b-f6541657a33c",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "Forgot pass validate email",
+            "url": "http://localhost:4000/api/veterinarian/forgot-password",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2025-05-30T03:03:09.318Z",
+            "modified": "2025-06-01T13:23:47.579Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\" : \"tahuilan@correo.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d3c7dd76-0fe0-4d5f-8da2-57b89176b12c",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "Forgot pass verify token",
+            "url": "http://localhost:4000/api/veterinarian/forgot-password/1islq4pmnmo92a8oseuo",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2025-05-30T05:02:29.109Z",
+            "modified": "2025-06-01T13:16:21.386Z",
+            "headers": []
+        },
+        {
+            "_id": "aa1d0579-b3c4-4dbd-8ead-efa33d30875f",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "Forgot pass new pass",
+            "url": "http://localhost:4000/api/veterinarian/forgot-password/1islqj93n4fmnahg7m2",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2025-05-30T11:25:24.704Z",
+            "modified": "2025-06-01T13:24:17.038Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\" : \"newpassword\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "cf461c10-08d7-4a36-8f3f-9c7a42f0b2a5",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "create patient",
+            "url": "http://localhost:4000/api/patient",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2025-06-01T13:55:19.506Z",
+            "modified": "2025-06-08T14:52:31.658Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"petName\" : \"Kitty\",\n  \"petOwner\" : \"Marylu\",\n  \"email\" : \"marylu@correo.com\",\n  \"phone\" : \"123456789\",\n  \"symptoms\" : \"No duerme\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4M2M1NjRiMzQ4MjA1MTQ3MWNiNDZiYiIsImlhdCI6MTc0ODkyMzY1NiwiZXhwIjoxNzUxNTE1NjU2fQ.PgfTdxPhB49ZZ_o8O2ehEIs4AUjuR0FEkmssKGsB-Vx3w7q_aE_ynztvBYiXPaLAAnp_H4XLTI5_44QZIeIOBQ"
+            }
+        },
+        {
+            "_id": "46692e1b-dde6-4554-a0f6-8d6aafc00bec",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "get all patients",
+            "url": "http://localhost:4000/api/patient",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2025-06-03T02:51:21.401Z",
+            "modified": "2025-06-03T03:36:10.033Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4M2M1Njg5MzQ4MjA1MTQ3MWNiNDZiZSIsImlhdCI6MTc0ODkyMTc1MiwiZXhwIjoxNzUxNTEzNzUyfQ.A5TCKXahQDdaORlkHvWxGBcKGeKNCLQ244d271hrhyk9hG5epoJn9BWZ_n_zZy-5yip5AjEvtSplIwNiGirLYw"
+            }
+        },
+        {
+            "_id": "aa23e62f-01d9-48b4-a4d9-4fa189415d7f",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "get specific patient",
+            "url": "http://localhost:4000/api/patient/683e6be72e0fadc45b7d88fd",
+            "method": "GET",
+            "sortNum": 120000,
+            "created": "2025-06-03T03:54:52.971Z",
+            "modified": "2025-06-03T04:07:46.183Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4M2M1NjRiMzQ4MjA1MTQ3MWNiNDZiYiIsImlhdCI6MTc0ODkyMzY1NiwiZXhwIjoxNzUxNTE1NjU2fQ.PgfTdxPhB49ZZ_o8O2ehEIs4AUjuR0FEkmssKGsB-Vx3w7q_aE_ynztvBYiXPaLAAnp_H4XLTI5_44QZIeIOBQ"
+            }
+        },
+        {
+            "_id": "810ed308-9bda-4b59-a753-fbb67f565809",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "Edit patient",
+            "url": "http://localhost:4000/api/patient/683e6c232e0fadc45b7d8901",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2025-06-04T03:54:58.535Z",
+            "modified": "2025-06-08T14:12:49.241Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"petName\" : \"Don Gato [EDITADO]\",\n  \"petOwner\" : \"Lula [EDITADO]\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4M2M1NjRiMzQ4MjA1MTQ3MWNiNDZiYiIsImlhdCI6MTc0ODkyMzY1NiwiZXhwIjoxNzUxNTE1NjU2fQ.PgfTdxPhB49ZZ_o8O2ehEIs4AUjuR0FEkmssKGsB-Vx3w7q_aE_ynztvBYiXPaLAAnp_H4XLTI5_44QZIeIOBQ"
+            }
+        },
+        {
+            "_id": "4582bafb-4770-4de1-8a4d-5db0c7fcbcd3",
+            "colId": "39a12904-b694-44bc-9674-bd346902fe16",
+            "containerId": "",
+            "name": "Delete patient",
+            "url": "http://localhost:4000/api/patient/683e6c642e0fadc45b7d8905",
+            "method": "DELETE",
+            "sortNum": 140000,
+            "created": "2025-06-08T14:14:29.902Z",
+            "modified": "2025-06-08T14:51:19.479Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4M2M1NjRiMzQ4MjA1MTQ3MWNiNDZiYiIsImlhdCI6MTc0OTM5MzgwNSwiZXhwIjoxNzUxOTg1ODA1fQ.PYk8hWT0FAW0_rJQqqKA9igGc9Gj9oeMvLSZu2I-a6mYdjG4cPtyBhcDEWbEuJamo_uLvaMsfcd_dVwQ_OglrQ"
+            }
+        }
+    ],
+    "ref": "MCtkZjij1K7UJWkFHo3tun1G0wt9U6apKNBrzdaYnVzkOgGLZH--dR73xUHQOcvyHI-YAifV2fbKz98zSUwNeA"
+}

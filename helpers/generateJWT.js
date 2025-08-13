@@ -2,8 +2,8 @@ import jwt from "jsonwebtoken";
 
 const generateJWT = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: "30 days",
-        algorithm: 'HS512'
+        algorithm: 'HS512', // Especifica el algoritmo HS512
+        expiresIn: '24h',   // El token expirará en 24 horas
     });
 }
 

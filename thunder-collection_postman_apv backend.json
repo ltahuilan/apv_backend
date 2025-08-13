@@ -1,0 +1,357 @@
+{
+    "info": {
+        "_postman_id": "e3379e3d-4c4e-44b2-b7b1-0eab2146a1ba",
+        "name": "apv backend",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "register",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:4000/api/veterinarian",
+                    "path": [
+                        "api",
+                        "veterinarian"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"name\" : \"Tahuilan\",\n  \"email\" : \"tahuilan@correo.com\",\n  \"password\" : \"password\"\n}"
+                }
+            }
+        },
+        {
+            "name": "profile",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:4000/api/veterinarian/profile",
+                    "path": [
+                        "api",
+                        "veterinarian",
+                        "profile"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MzIxOWMyNTg0MmFmNWQ3YmY5YzYyMiIsImlhdCI6MTc0ODE5NjA2MSwiZXhwIjoxNzUwNzg4MDYxfQ.kWiXc5daS4hVcSqdGXOjvVSRQsVauJlPXafg_tX0J_Ku43RrqAAXHonfRTzkMjA71KYFfpCyPYQgiZoBbp3y4A",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "confirm account",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:4000/api/veterinarian/confirm/1islr1e3b2ur6d620h8g",
+                    "path": [
+                        "api",
+                        "veterinarian",
+                        "confirm",
+                        "1islr1e3b2ur6d620h8g"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                }
+            }
+        },
+        {
+            "name": "login user",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:4000/api/veterinarian/auth",
+                    "path": [
+                        "api",
+                        "veterinarian",
+                        "auth"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"email\" : \"ltahuilan.ipn@gmail.com\",\n  \"password\" : \"password\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Forgot pass validate email",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:4000/api/veterinarian/forgot-password",
+                    "path": [
+                        "api",
+                        "veterinarian",
+                        "forgot-password"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"email\" : \"tahuilan@correo.com\"\n}"
+                }
+            }
+        },
+        {
+            "name": "Forgot pass verify token",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:4000/api/veterinarian/forgot-password/1islq4pmnmo92a8oseuo",
+                    "path": [
+                        "api",
+                        "veterinarian",
+                        "forgot-password",
+                        "1islq4pmnmo92a8oseuo"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                }
+            }
+        },
+        {
+            "name": "Forgot pass new pass",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:4000/api/veterinarian/forgot-password/1islqj93n4fmnahg7m2",
+                    "path": [
+                        "api",
+                        "veterinarian",
+                        "forgot-password",
+                        "1islqj93n4fmnahg7m2"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"password\" : \"newpassword\"\n}"
+                }
+            }
+        },
+        {
+            "name": "create patient",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:4000/api/patient/create",
+                    "path": [
+                        "api",
+                        "patient",
+                        "create"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"petName\" : \"Kitty\",\n  \"petOwner\" : \"Marylu\",\n  \"email\" : \"marylu@correo.com\",\n  \"phone\" : \"123456789\",\n  \"symptoms\" : \"No duerme\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjE1MTUwMWQ1ZWI0MjRlYTJmNWZlNyIsImlhdCI6MTc1Mjk0MTcyMywiZXhwIjoxNzU1NTMzNzIzfQ.BpHZwW9uZ7uNKdvgMoD7rv_AXK77phv52hGynG2WtXqyOk_p628ffloeYEYAfgsWkAL1Js3X-ViV0lxzBNcIaw",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "get all patients",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:4000/api/patient/get-patients",
+                    "path": [
+                        "api",
+                        "patient",
+                        "get-patients"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjE1MTUwMWQ1ZWI0MjRlYTJmNWZlNyIsImlhdCI6MTc1Mjk0MTcyMywiZXhwIjoxNzU1NTMzNzIzfQ.BpHZwW9uZ7uNKdvgMoD7rv_AXK77phv52hGynG2WtXqyOk_p628ffloeYEYAfgsWkAL1Js3X-ViV0lxzBNcIaw",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "get specific patient",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:4000/api/patient/get-patient/683e6be72e0fadc45b7d88fd",
+                    "path": [
+                        "api",
+                        "patient",
+                        "get-patient",
+                        "683e6be72e0fadc45b7d88fd"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjE1MTUwMWQ1ZWI0MjRlYTJmNWZlNyIsImlhdCI6MTc1Mjk0MTcyMywiZXhwIjoxNzU1NTMzNzIzfQ.BpHZwW9uZ7uNKdvgMoD7rv_AXK77phv52hGynG2WtXqyOk_p628ffloeYEYAfgsWkAL1Js3X-ViV0lxzBNcIaw",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Edit patient",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:4000/api/patient/update/687bc8604c4df67bf02e686b",
+                    "path": [
+                        "api",
+                        "patient",
+                        "update",
+                        "687bc8604c4df67bf02e686b"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"petName\" : \"Chilakil [Editado]\",\n  \"petOwner\" : \"Tahuilan [EDITADO]\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NjE1MTUwMWQ1ZWI0MjRlYTJmNWZlNyIsImlhdCI6MTc1MzY1Mjg2NSwiZXhwIjoxNzUzNzM5MjY1fQ.lsWpQto4XCFQLxD6O7xd8hnfQGONCMZWEKil-p4jgCAcdMKQB-mAXIgtsSQca6va_zvflPt-GjkNMzFH0Tj1GA",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Delete patient",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:4000/api/patient/delete/683e6c642e0fadc45b7d8905",
+                    "path": [
+                        "api",
+                        "patient",
+                        "delete",
+                        "683e6c642e0fadc45b7d8905"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4M2M1NjRiMzQ4MjA1MTQ3MWNiNDZiYiIsImlhdCI6MTc0OTM5MzgwNSwiZXhwIjoxNzUxOTg1ODA1fQ.PYk8hWT0FAW0_rJQqqKA9igGc9Gj9oeMvLSZu2I-a6mYdjG4cPtyBhcDEWbEuJamo_uLvaMsfcd_dVwQ_OglrQ",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -56,7 +56,7 @@ const confirmUser = async (req, res) => {
 
     //si no se encuentra un usuario con el token
     if(!veterinarian) {
-        const error = new Error('Usuario no encontrado o token no valido');
+        const error = new Error("Usuario no encontrado o token no valido");
         return res.status(401).json({"message" : error.message});
     }
 
@@ -87,13 +87,13 @@ const loginUser = async (req, res) => {
         
         //verificar si el usuario existe
         if( !user) {
-            const error = new Error('El usuario no existe');         
+            const error = new Error("El usuario no existe");         
             return res.status(401).json({"message" : error.message});
         }
 
         //valida si esta confirmado
         if(!user.confirm ) {
-            const error = new Error('El usuario no esta confirmado, hemos enviado nuevamente un correo para confirmar la cuenta');
+            const error = new Error("El usuario no esta confirmado, hemos enviado nuevamente un correo para confirmar la cuenta");
             //enviar email de confirmación
             emailConfirmation({
                 name: user.name,
@@ -105,7 +105,7 @@ const loginUser = async (req, res) => {
 
         //verificar si el password es correcto
         if( !(await user.matchPassword(password) ) ) {
-            const error = new Error('Las credenciales son incorrectas');
+            const error = new Error("Las credenciales son incorrectas");
             return res.status(401).json({"message" : error.message});
         }
 
@@ -117,7 +117,7 @@ const loginUser = async (req, res) => {
         });
 
     } catch (error) {
-        // console.error('Ocurrió un error durante la autenticación.. ', error);
+        // console.error("Ocurrió un error durante la autenticación.. ", error);
         return res.status(500).json({"message" : error.message, error: true});
     }
 }
@@ -160,7 +160,7 @@ const verifyToken = async (req, res) => {
     
     //verificar si el token pertenece a un usuario y esta confirmado
     if(!veterinarian || !veterinarian.confirm) {
-        const error = new Error('Token no valido o usuario no confirmado');
+        const error = new Error("Token no valido o usuario no confirmado");
         return res.status(401).json({ "message" : error.message });
     }
     return res.json({ "message" : "Ingresa tu nuevo password"});
@@ -181,7 +181,7 @@ const resetPassword = async (req, res) => {
         //reset al token
         veterinarian.token = null;
         //sobreescribir el password
-        veterinarian.password = password //el pre('save) del modelo hashea el password
+        veterinarian.password = password //el pre("save) del modelo hashea el password
         //guardar cambios 
         veterinarian.save();
         return res.status(200).json({"message" : "Password actualizado exitosamente..."});
@@ -195,6 +195,39 @@ const getProfile = (req, res) => {
     return res.json(veterinarian)
 }
 
+const updateProfile = async (req, res) => {
+    const {id} = req.params
+    const veterinarian = await Veterinarian.findById(id);
+    
+    if (!veterinarian) {
+        const error = new Error("Ha ocurrido un error");
+        return res.estatus(404).json({"message": error.message});
+    }
+
+    //validar si el email existe en la base de datos
+    if(veterinarian.email !== req.body.email) {
+        const {email} = req.body;
+        const emailExists = await Veterinarian.findOne({email});
+        
+        if (emailExists) {
+            const error = new Error("El email ya existe");
+            return res.status(409).json({"message": error.message});
+        }
+    }
+
+    try {
+        veterinarian.name = req.body.name;
+        veterinarian.email = req.body.email;
+        veterinarian.phone = req.body.phone;
+        veterinarian.web = req.body.web;
+        const updatedVeterinarian = await veterinarian.save();
+        res.json(updatedVeterinarian);
+    } catch (error) {
+        console.log(error);
+        return {message: error.response.data.message}
+    }
+}
+
 
 export {
     registerUser,
@@ -203,7 +236,8 @@ export {
     forgotPassword,
     verifyToken,
     resetPassword,
-    getProfile
+    getProfile,
+    updateProfile
 }
 
 /**

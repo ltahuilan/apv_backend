@@ -8,6 +8,7 @@ import {
     verifyToken,
     resetPassword,
     getProfile,
+    updateProfile
 } from "../controllers/veterinarianController.js";
 
 
@@ -25,5 +26,6 @@ router.post('/forgot-password/:token', resetPassword); //obtener nuevo password
 
 //private routes
 router.get('/profile', isAutenticated, getProfile);
+router.put('/profile/update/:id', isAutenticated, updateProfile);
 
 export default router;
