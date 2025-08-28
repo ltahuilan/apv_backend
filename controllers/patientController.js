@@ -2,6 +2,7 @@ import Patient from "../models/Patient.js";
 
 const createPatient = async (req, res) => {
 
+    //previene que se envie un _id=null y alterar la respuesta de await patient.save()
     if (req.body._id === null) {
         delete req.body._id
     }

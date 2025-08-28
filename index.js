@@ -15,7 +15,7 @@ connectDB();
 
 
 const whiteList = ['http://localhost:5173'];
-const coreOptions = {
+const corsOptions = {
     origin: function(origin, callback) {
         if(whiteList.indexOf(origin) !== -1) {
             //El origen del request esta permitido
@@ -26,7 +26,7 @@ const coreOptions = {
     }
 }
 // Middleware
-app.use(cors(coreOptions)); // Habilita CORS para permitir peticiones desde tu app de React
+app.use(cors(corsOptions)); // Habilita CORS para permitir peticiones desde tu app de React
 
 //Rutas base de la API
 app.use('/api/veterinarian', veterinarianRouter);

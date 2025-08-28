@@ -118,7 +118,7 @@ const loginUser = async (req, res) => {
 
     } catch (error) {
         // console.error("Ocurrió un error durante la autenticación.. ", error);
-        return res.status(500).json({"message" : error.message, error: true});
+        return res.status(500).json({"message" : error.message});
     }
 }
 
@@ -196,12 +196,19 @@ const getProfile = (req, res) => {
 }
 
 const updateProfile = async (req, res) => {
+    
     const {id} = req.params
     const veterinarian = await Veterinarian.findById(id);
     
     if (!veterinarian) {
         const error = new Error("Ha ocurrido un error");
-        return res.estatus(404).json({"message": error.message});
+        return res.status(404).json({"message": error.message});
+    }
+
+    //comprobar el password
+    if( !(await veterinarian.matchPassword(req.body.password)) ) {
+        const error = new Error("El password es incorrecto");
+        return res.status(401).json({"message": error.message});
     }
 
     //validar si el email existe en la base de datos
@@ -223,7 +230,36 @@ const updateProfile = async (req, res) => {
         const updatedVeterinarian = await veterinarian.save();
         res.json(updatedVeterinarian);
     } catch (error) {
-        console.log(error);
+        // console.log(error);
+        return {message: error.response.data.message}
+    }
+}
+
+const changePassword = async (req, res) => {
+    // console.log(req.body);
+    // console.log(req.veterinarian._id);
+    const id = req.veterinarian._id
+    const currentPassword = req.body.currentPassword;
+
+    //comprobar que el veterinario existe
+    const veterinarian = await Veterinarian.findById(id);
+    if(!veterinarian) {
+        const error = new Error("Ha ocurrido un error");
+        return res.status().json({"message": error.message});
+    }
+
+    //comprobar el password actual
+    if( !( await veterinarian.matchPassword(currentPassword) ) ) {
+        const error = new Error("El password es incorrecto");
+        return res.status(401).json({"message": error.message});
+    }
+
+    //guardar el password nuevo
+    try {
+        veterinarian.password = req.body.newPassword;
+        await veterinarian.save();
+        return res.status(200).json({"message": "Password updated successfully"});
+    } catch (error) {
         return {message: error.response.data.message}
     }
 }
@@ -237,7 +273,8 @@ export {
     verifyToken,
     resetPassword,
     getProfile,
-    updateProfile
+    updateProfile,
+    changePassword
 }
 
 /**
