@@ -41,7 +41,7 @@ const registerUser = async (req, res) => {
             return res.status(200).json({"message" : "Usuario creado correctamente"});
         }
     } catch (error) {
-        console.log(`Error al intentar registrar un nuevo veterinario: ${error}`);
+        // console.log(`Error al intentar registrar un nuevo veterinario: ${error}`);
         res.status(500).json({
             "message" : "Error del servidor al intentar registrar el usuario",
             "Error" : error.message
@@ -113,6 +113,8 @@ const loginUser = async (req, res) => {
             "_id" : user._id,
             "name" : user.name,
             "email" : user.email,
+            "web" : user.web,
+            "phone" : user.phone,
             "token" : generateJWT(user.id)
         });
 
@@ -192,6 +194,7 @@ const resetPassword = async (req, res) => {
 
 const getProfile = (req, res) => {
     const {veterinarian} = req;
+    console.log(veterinarian);
     return res.json(veterinarian)
 }
 
@@ -217,9 +220,11 @@ const updateProfile = async (req, res) => {
         const emailExists = await Veterinarian.findOne({email});
         
         if (emailExists) {
-            const error = new Error("El email ya existe");
+            const error = new Error("El email ya esta en uso");
             return res.status(409).json({"message": error.message});
         }
+
+        return;
     }
 
     try {
@@ -227,10 +232,14 @@ const updateProfile = async (req, res) => {
         veterinarian.email = req.body.email;
         veterinarian.phone = req.body.phone;
         veterinarian.web = req.body.web;
+        
         const updatedVeterinarian = await veterinarian.save();
-        res.json(updatedVeterinarian);
+        const updatedVeterinarianObj = updatedVeterinarian.toObject();
+        const {password, ...updatedVeterinarianWithoutPassword} = updatedVeterinarianObj;
+
+        return res.json(updatedVeterinarianWithoutPassword);
+
     } catch (error) {
-        // console.log(error);
         return {message: error.response.data.message}
     }
 }
@@ -250,7 +259,7 @@ const changePassword = async (req, res) => {
 
     //comprobar el password actual
     if( !( await veterinarian.matchPassword(currentPassword) ) ) {
-        const error = new Error("El password es incorrecto");
+        const error = new Error("El password actual es incorrecto");
         return res.status(401).json({"message": error.message});
     }
 
@@ -263,7 +272,6 @@ const changePassword = async (req, res) => {
         return {message: error.response.data.message}
     }
 }
-
 
 export {
     registerUser,

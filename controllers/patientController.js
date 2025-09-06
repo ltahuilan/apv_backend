@@ -12,8 +12,6 @@ const createPatient = async (req, res) => {
 
     try {
         const patientSaved = await patient.save();
-
-        console.log(patientSaved)
         const patienSavedToObject = patientSaved.toObject();
         console.log(patienSavedToObject);
 
